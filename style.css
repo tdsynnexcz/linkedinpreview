@@ -1,89 +1,127 @@
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  margin: 0;
-  padding: 30px;
-  transition: background 0.3s, color 0.3s;
-}
-
 :root {
-  --bg: #eef3f8;
+  --bg: #f3f2ef;
   --text: #000;
-  --box-bg: #fff;
-  --box-border: #ccc;
+  --card-bg: #fff;
+  --border: #ccc;
 }
 
-.dark {
+body.dark {
   --bg: #1a1a1a;
-  --text: #e0e0e0;
-  --box-bg: #2b2b2b;
-  --box-border: #444;
+  --text: #eee;
+  --card-bg: #2a2a2a;
+  --border: #444;
 }
 
-.theme-toggle {
+body {
+  margin: 0;
+  padding: 20px;
+  background: var(--bg);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.controls {
   max-width: 600px;
   margin: auto;
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  color: var(--text);
+  margin-bottom: 20px;
 }
 
-.container {
+.composer {
   max-width: 600px;
   margin: auto;
-  background: var(--box-bg);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border: 1px solid var(--box-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-textarea, input, button {
+.composer input, .composer textarea {
   width: 100%;
   margin-top: 10px;
-  padding: 12px;
-  font-size: 14px;
-  border: 1px solid var(--box-border);
+  padding: 10px;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  box-sizing: border-box;
+  font-size: 14px;
   background: var(--bg);
   color: var(--text);
 }
 
-.post-preview {
-  margin-top: 30px;
-  padding: 20px;
-  background: var(--box-bg);
-  border: 1px solid var(--box-border);
-  border-radius: 10px;
+.composer button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.author {
+.linkedin-post {
+  max-width: 600px;
+  margin: 30px auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+.post-header {
   display: flex;
-  align-items: center;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.post-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.post-header .title {
+  font-size: 13px;
+  color: gray;
+}
+
+.meta {
+  font-size: 12px;
+  color: gray;
+}
+
+.dots {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.post-content {
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-wrap;
   margin-bottom: 15px;
 }
 
-.author img {
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  margin-right: 12px;
-}
-
-.author-info {
+.post-actions {
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
   font-size: 14px;
+  color: gray;
 }
 
-.post-text {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Mobilní náhled */
-.mobile #previewContainer {
+body.mobile .linkedin-post {
   max-width: 375px;
 }

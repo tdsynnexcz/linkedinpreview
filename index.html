@@ -3,36 +3,42 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinkedIn Náhled</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="theme-toggle">
-    <label>
-      <input type="checkbox" id="modeToggle" onchange="toggleTheme()"> Tmavý režim
-    </label>
-    <label>
-      <input type="checkbox" id="viewToggle" onchange="toggleView()"> Mobilní zobrazení
-    </label>
+  <div class="controls">
+    <label><input type="checkbox" onchange="toggleTheme()"> Tmavý režim</label>
+    <label><input type="checkbox" onchange="toggleMobile()"> Mobilní náhled</label>
   </div>
-  <div class="container" id="previewContainer">
-    <h2>Vytvoř si náhled LinkedIn příspěvku</h2>
-    <input type="text" id="name" placeholder="Jméno a příjmení">
-    <input type="text" id="title" placeholder="Pozice / Společnost">
-    <textarea id="content" rows="5" placeholder="Napiš text příspěvku..."></textarea>
-    <button onclick="generatePreview()">Zobrazit náhled</button>
 
-    <div class="post-preview" id="preview" style="display:none;">
-      <div class="author">
-        <img src="https://via.placeholder.com/48" alt="Profilová fotka">
-        <div class="author-info">
-          <strong id="preview-name"></strong><br>
-          <span id="preview-title"></span>
-        </div>
+  <div class="composer">
+    <input type="text" id="name" placeholder="Jméno a příjmení" />
+    <input type="text" id="title" placeholder="Pozice / Společnost" />
+    <textarea id="content" placeholder="Napiš příspěvek jako na LinkedIn..."></textarea>
+    <button onclick="generatePreview()">Zobrazit náhled</button>
+  </div>
+
+  <div class="linkedin-post" id="post" style="display:none;">
+    <div class="post-header">
+      <img src="https://via.placeholder.com/48" alt="Profilovka">
+      <div>
+        <strong id="out-name">Jméno</strong>
+        <div id="out-title" class="title">Pozice / Společnost</div>
+        <div class="meta">1 d • 🌍</div>
       </div>
-      <div class="post-text" id="preview-content"></div>
+      <div class="dots">•••</div>
+    </div>
+    <div class="post-content" id="out-content"></div>
+    <div class="post-actions">
+      <span>👍 Like</span>
+      <span>💬 Komentář</span>
+      <span>🔁 Sdílet</span>
+      <span>✉️ Poslat</span>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
